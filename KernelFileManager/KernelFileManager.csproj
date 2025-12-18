@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PlatformTarget>x64</PlatformTarget>
+    <ApplicationManifest>Properties/app.manifest</ApplicationManifest>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <AssemblyName>KernelFileManager</AssemblyName>
+    <RootNamespace>KernelFileManager</RootNamespace>
+    
+    <!-- Assembly bilgilerini .csproj'dan yönet -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    
+    <!-- Assembly bilgileri -->
+    <Company>Kernel Solutions</Company>
+    <Product>Kernel File Manager</Product>
+    <Description>Advanced file management tool with kernel-level operations</Description>
+    <Copyright>© 2024 Kernel Solutions. All rights reserved.</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+    <Title>Kernel File Manager</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- DLL dosyasını projeye ekle -->
+    <Content Include="kernel_helper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    
+    <!-- Icon dosyası -->
+    <None Include="icon.ico" />
+  </ItemGroup>
+
+</Project>

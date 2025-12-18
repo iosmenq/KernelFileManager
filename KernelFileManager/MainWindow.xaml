@@ -1,0 +1,134 @@
+<Window x:Class="KernelFileManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="⚡ KERNEL EXPLOIT - SYSTEM ELEVATION" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#FF0A0A0A">
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF000000" Offset="0"/>
+                <GradientStop Color="#FF1a1a1a" Offset="0.5"/>
+                <GradientStop Color="#FF2d2d2d" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Başlık -->
+            <Border Grid.Row="0" CornerRadius="10" Margin="0,0,0,20"
+                    Background="#40000000" BorderBrush="#FF00FF00" BorderThickness="2">
+                <StackPanel>
+                    <TextBlock Text="🔓 KERNEL EXPLOIT - TOKEN ELEVATION" 
+                             FontSize="28" FontWeight="Bold" Foreground="#FF00FF00"
+                             HorizontalAlignment="Center" Margin="20,15"/>
+                    <TextBlock Text="Admin → SYSTEM Token Stealing &amp; Kernel Mode File Operations"
+                             FontSize="14" Foreground="#FF87CEEB"
+                             HorizontalAlignment="Center" Margin="0,0,0,15"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- Ana İçerik -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <!-- Sol: Dosya Listesi -->
+                <Border Grid.Column="0" CornerRadius="10" Margin="0,0,10,0"
+                       Background="#30000000" BorderBrush="#40FFFFFF">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                            <Button x:Name="btnBrowse" Content="📁 SYSTEM DOSYASI SEÇ" 
+                                  Width="220" Height="45" FontWeight="Bold"
+                                  Background="#FF4169E1" Foreground="White"/>
+                        </StackPanel>
+                        
+                        <ListView x:Name="lstFiles" Grid.Row="1" Margin="10"
+                                Background="Transparent" Foreground="White">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Dosya" Width="300" 
+                                                  DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="Boyut" Width="100"
+                                                  DisplayMemberBinding="{Binding Size}"/>
+                                    <GridViewColumn Header="Sahip" Width="200"
+                                                  DisplayMemberBinding="{Binding Owner}"/>
+                                    <GridViewColumn Header="Durum" Width="150"
+                                                  DisplayMemberBinding="{Binding Status}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </Border>
+                
+                <!-- Sağ: Exploit Kontrolleri -->
+                <Border Grid.Column="1" CornerRadius="10" Background="#30000000">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="🔧 EXPLOIT KONTROLLERİ" 
+                                 FontSize="18" FontWeight="Bold" Foreground="#FF00FF00"
+                                 Margin="0,0,0,20"/>
+                        
+                        <Button x:Name="btnStealToken" Content="🎯 SYSTEM TOKEN ÇAL" 
+                              Height="55" Margin="0,8" FontWeight="Bold" FontSize="14"
+                              Background="#FF8A2BE2" Foreground="White" IsEnabled="False"/>
+                        
+                        <Button x:Name="btnBecomeSystem" Content="👑 SYSTEM OL (Impersonate)" 
+                              Height="55" Margin="0,8" FontWeight="Bold" FontSize="14"
+                              Background="#FF4169E1" Foreground="White" IsEnabled="False"/>
+                        
+                        <Border Margin="0,20,0,0" Background="#20000000" CornerRadius="8" Padding="10">
+                            <TextBlock Text="SİSTEM DOSYA İŞLEMLERİ" 
+                                     Foreground="#FFFFA500" FontWeight="Bold"
+                                     HorizontalAlignment="Center"/>
+                        </Border>
+                        
+                        <Button x:Name="btnUnlockFile" Content="🔓 SYSTEM KİLİDİ AÇ" 
+                              Height="50" Margin="0,8" FontWeight="Bold" FontSize="13"
+                              Background="#FF32CD32" Foreground="White" IsEnabled="False"/>
+                        
+                        <Button x:Name="btnKernelDelete" Content="⚡ KERNEL MODE SİL" 
+                              Height="50" Margin="0,8" FontWeight="Bold" FontSize="13"
+                              Background="#FFDC143C" Foreground="White" IsEnabled="False"/>
+                        
+                        <Button x:Name="btnForceDelete" Content="💀 FORCE DELETE (Tümü)" 
+                              Height="50" Margin="0,8" FontWeight="Bold" FontSize="13"
+                              Background="#FF8B0000" Foreground="White" IsEnabled="False"/>
+                        
+                        <Button x:Name="btnRefresh" Content="🔄 YENİLE" 
+                              Height="45" Margin="0,20,0,0"
+                              FontWeight="Bold" Background="#FF1E90FF"/>
+                        
+                        <!-- Durum -->
+                        <Border Margin="0,25,0,0" Background="#40000000" 
+                               CornerRadius="8" Padding="12" BorderBrush="#FF00FF00">
+                            <TextBlock x:Name="txtStatus" Text="🔍 Exploit başlatılıyor..."
+                                     Foreground="#FF00FF00" FontWeight="Bold"
+                                     FontSize="14" TextWrapping="Wrap"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+            <!-- Uyarı -->
+            <Border Grid.Row="2" CornerRadius="8" Margin="0,20,0,0"
+                    Background="#60FF0000" BorderBrush="#FFFF0000" BorderThickness="2">
+                <TextBlock Text="⚠️ EXPLOIT UYARI: Bu araç kernel seviyesinde işlem yapar. Windows'u bozma riski ÇOK YÜKSEK! Sadece test ortamında kullanın."
+                         Foreground="White" HorizontalAlignment="Center"
+                         Margin="15" FontWeight="Bold" TextWrapping="Wrap" FontSize="11"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
