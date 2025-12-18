@@ -13,9 +13,7 @@ using Microsoft.Win32;
 namespace KernelFileManager
 {
     public partial class MainWindow : Window
-    {
-        // ==================== KERNEL DIRECT API ====================
-        
+    {        
         [DllImport("ntdll.dll", SetLastError = true)]
         private static extern uint NtQuerySystemInformation(int SystemInformationClass,
             IntPtr SystemInformation, uint SystemInformationLength, out uint ReturnLength);
@@ -65,8 +63,6 @@ namespace KernelFileManager
             uint dwShareMode, IntPtr lpSecurityAttributes, uint dwCreationDisposition,
             uint dwFlagsAndAttributes, IntPtr hTemplateFile);
         
-        // ==================== STRUCTURES ====================
-        
         [StructLayout(LayoutKind.Sequential)]
         private struct UNICODE_STRING
         {
@@ -105,9 +101,7 @@ namespace KernelFileManager
             public uint HandleAttributes;
             public uint Reserved;
         }
-        
-        // ==================== CONSTANTS ====================
-        
+          
         private const int SE_DEBUG_PRIVILEGE = 20;
         private const int SE_TCB_PRIVILEGE = 7;
         private const int SE_IMPERSONATE_PRIVILEGE = 29;
@@ -137,9 +131,7 @@ namespace KernelFileManager
         private const uint OPEN_EXISTING = 3;
         private const uint FILE_FLAG_BACKUP_SEMANTICS = 0x02000000;
         private const uint FILE_FLAG_OPEN_REPARSE_POINT = 0x00200000;
-        
-        // ==================== GLOBAL VARIABLES ====================
-        
+           
         private IntPtr systemToken = IntPtr.Zero;
         private bool isSystemElevated = false;
         private List<FileItem> fileList = new List<FileItem>();
@@ -175,8 +167,6 @@ namespace KernelFileManager
             btnForceDelete.Click += BtnForceDelete_Click;
             btnRefresh.Click += BtnRefresh_Click;
         }
-        
-        // ==================== KERNEL EXPLOIT FUNCTIONS ====================
         
         private bool EnableDebugPrivilege()
         {
@@ -386,8 +376,6 @@ namespace KernelFileManager
                 return false;
             }
         }
-        
-        // ==================== UI BUTTON HANDLERS ====================
         
         private void BtnStealToken_Click(object sender, RoutedEventArgs e)
         {
