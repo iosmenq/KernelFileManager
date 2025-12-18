@@ -107,7 +107,6 @@
                               Height="45" Margin="0,20,0,0"
                               FontWeight="Bold" Background="#FF1E90FF"/>
                         
-                        <!-- Durum -->
                         <Border Margin="0,25,0,0" Background="#40000000" 
                                CornerRadius="8" Padding="12" BorderBrush="#FF00FF00">
                             <TextBlock x:Name="txtStatus" Text="🔍 Exploit başlatılıyor..."
@@ -128,3 +127,4 @@
     </Grid>
 
 </Window>
+
