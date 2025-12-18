@@ -58,7 +58,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   
-  <!-- String kaynakları -->
   <data name="AppTitle" xml:space="preserve">
     <value>Kernel File Manager</value>
   </data>
@@ -83,4 +82,5 @@
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
   </data>
+
 </root>
