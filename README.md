@@ -1,2 +1,2 @@
 # KernelFileManager
-deleting files with windows 7 - windows xp system privilage
+deleting windows 7 - wndows xp **_kernel_** files with system privilagei
